@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Untitled</title>
+    <link href="/stylesheets/application.css?1268516639" media="screen" rel="stylesheet" type="text/css" />
+    
+  </head>
+  <body>
+    <div id="header">
+    <tr>
+      <td><a href="http://www.example.com/blocks/new">New</a>  |  </td>
+      <td><a href="http://www.example.com/blocks">Blocks</a></td>
+    </tr>
+    </div>
+    <div id="container">
+        <div id="flash_notice">Ok</div>
+      
+      
+      <h1>Block</h1>
+  <div id="block_code">
+    
+      <div class="actions">
+  <a href="/blocks/1/edit"><img alt="Edit" src="/images/edit.png?1268512218" title="Edit" /></a>
+  <a href="/blocks/1" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;"><img alt="Delete" src="/images/delete.png?1268512169" title="Delete" /></a> 
+</div>
+
+    
+    <pre style="min-height: 300px;">
+      <div >Probando</div>
+    </pre>
+  </div>
+
+
+  <div id="block_revisions">
+    <h3>Revisions</h3> 
+    
+      <a href="/blocks/1/revisions/1" class="white_link">Resvision 1</a>
+    
+  </div>
+
+    </div>
+  </body>
+</html>

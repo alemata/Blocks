@@ -1,0 +1,7 @@
+<div id="block_revisions">
+  <h3>Revisions</h3> 
+  <%= link_to "Last", block_path(@block), :class => "white_link" %><br/>
+  <% @revisions.each do |revision| %>
+    <%= link_to "Revision " + revision.revision_number.to_s, block_revision_path(@block, revision), :class => "white_link" %><br/>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<h1>Revision<span style="margin-left: 1em;">Revision <%= @revision.revision_number %> </span></h1>
+
+<div id="block_code">
+  <% if @block.owner == session[:session_id].to_i && @block.last_revision == @revision.revision_number %>
+    <%= render :partial => "actions", :locals => {:block => @block}  %>
+  <% end %>
+  <pre style="min-height: 300px;">
+    <div ><%=h @revision.snippet %></div>
+  </pre>
+</div>
+
+<%= render :partial => "blocks/revisions", :locals => {:block => @block}  %>

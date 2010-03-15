@@ -1,0 +1,19 @@
+<div>
+  <% form_for @block do |f| %>
+    <%= f.error_messages %>
+
+    <p style="float: left;"> Code </p>
+    <p style="float: right;">
+      <%= select_tag "block[revision_attr][file_type_id]", options_for_select(FileType.all.collect{|p|[ p.description, p.id.to_s ]}, @revision.file_type_id.to_s) %>
+    </p>
+    <br />
+    <p>
+      <%= text_area_tag "block[revision_attr][snippet]", @revision.snippet, {:size => "120x20"} %>
+    </p>
+
+    <p><%=f.check_box :shared, {:checked => "checked"}%> <%= f.label :shared, "Public" %> </p> <p style=color: #EEEEEE> This block will be private <p>
+
+    <p><%= f.submit "Submit" %></p>
+    <%= hidden_field_tag "block[revision_attr][revision_number]", @revision.revision_number %>
+  <% end %>
+</div>

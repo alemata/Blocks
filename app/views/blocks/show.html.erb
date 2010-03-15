@@ -1,0 +1,11 @@
+<h1>Block</h1>
+<div id="block_code">
+  <% if @block.owner == session[:session_id].to_i %>
+    <%= render :partial => "actions", :locals => {:block => @block}  %>
+  <% end %>
+  <pre style="min-height: 300px;">
+    <div ><%=h @block.revisions.last.snippet %></div>
+  </pre>
+</div>
+
+<%= render :partial => "revisions", :locals => {:block => @block} %>

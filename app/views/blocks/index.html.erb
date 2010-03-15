@@ -1,0 +1,14 @@
+<h1> Pastes <span style="margin-left: 1em;">Showing All</span> </h1>
+<% for block in @blocks %>
+  <div>
+    <%= link_to "Show", block, :class => "show_link" %>
+    <% if block.owner == session[:session_id].to_i %>
+      <%= render :partial => "actions", :locals => {:block => block} %>
+    <% end %>
+
+    <pre style="max-height: 150px;">
+      <div ><%=h block.revisions.last.snippet %></div>
+    </pre>
+  </div>
+<% end %>
+<%= will_paginate @blocks %>

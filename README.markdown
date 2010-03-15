@@ -16,8 +16,16 @@ Instroduccion
 Startup
 =======
 
-Luego de crear la base de datos, y hacer las migrations correspondientes, hay que correr
+Luego de crear la base de datos, y hacer las migrations correspondientes, hay que correr:
 
     rake bootstrap:all
 
 Para poder cargar los datos iniciales.
+
+
+Test
+----
+
+Para correr los test:
+
+    rake stories

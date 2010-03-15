@@ -1,0 +1,269 @@
+# Logfile created on Mon Mar 15 00:15:08 -0200 2010REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing BlocksController#new (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+Rendering template within layouts/application
+Rendering blocks/new
+  [4;36;1mFileType Load (5.6ms)[0m   [0;1mSELECT * FROM "file_types" [0m
+Rendered blocks/_form (10.5ms)
+Completed in 59ms (View: 20, DB: 6) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /blocks with {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"Testing private block", "file_type_id"=>""}, "shared"=>"0"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing BlocksController#create (for 127.0.0.1 at 2010-03-15 00:15:09) [POST]
+  Parameters: {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"Testing private block", "file_type_id"=>""}, "shared"=>"0"}}
+  [4;35;1mBlock Create (1.2ms)[0m   [0mINSERT INTO "blocks" ("created_at", "updated_at", "last_revision", "shared", "owner") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 0, 'f', 887)[0m
+  [4;36;1mRevision Create (0.1ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 1, 'Testing private block', NULL)[0m
+Redirected to http://www.example.com/blocks/1
+Completed in 10ms (DB: 1) | 302 Found [http://www.example.com/blocks]
+REQUESTING PAGE: GET http://www.example.com/blocks/1 with {} and HTTP headers {"HTTP_REFERER"=>"/blocks"}
+
+
+Processing BlocksController#show (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBlock Load (0.5ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.4ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+Rendering template within layouts/application
+Rendering blocks/show
+Rendered blocks/_actions (4.4ms)
+Rendered blocks/_revisions (0.7ms)
+Completed in 16ms (View: 12, DB: 1) | 200 OK [http://www.example.com/blocks/1]
+REQUESTING PAGE: GET http://www.example.com/blocks with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/blocks/1"}
+
+
+Processing BlocksController#index (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  [4;35;1mBlock Load (0.3ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."shared" = 't') ORDER BY updated_at DESC LIMIT 5 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering blocks/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/blocks]
+  [4;36;1mBlock Delete all (0.9ms)[0m   [0;1mDELETE FROM "blocks" WHERE 1=1[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing BlocksController#new (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+Rendering template within layouts/application
+Rendering blocks/new
+  [4;35;1mFileType Load (2.5ms)[0m   [0mSELECT * FROM "file_types" [0m
+Rendered blocks/_form (6.2ms)
+Completed in 11ms (View: 8, DB: 3) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /blocks with {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"Testing public block", "file_type_id"=>""}, "shared"=>"1"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing BlocksController#create (for 127.0.0.1 at 2010-03-15 00:15:09) [POST]
+  Parameters: {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"Testing public block", "file_type_id"=>""}, "shared"=>"1"}}
+  [4;36;1mBlock Create (0.9ms)[0m   [0;1mINSERT INTO "blocks" ("created_at", "updated_at", "last_revision", "shared", "owner") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 0, 't', 6325)[0m
+  [4;35;1mRevision Create (1.6ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 1, 'Testing public block', NULL)[0m
+Redirected to http://www.example.com/blocks/1
+Completed in 12ms (DB: 2) | 302 Found [http://www.example.com/blocks]
+REQUESTING PAGE: GET http://www.example.com/blocks/1 with {} and HTTP headers {"HTTP_REFERER"=>"/blocks"}
+
+
+Processing BlocksController#show (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBlock Load (0.5ms)[0m   [0;1mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;35;1mRevision Load (0.8ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+Rendering template within layouts/application
+Rendering blocks/show
+Rendered blocks/_actions (2.4ms)
+Rendered blocks/_revisions (0.8ms)
+Completed in 14ms (View: 11, DB: 1) | 200 OK [http://www.example.com/blocks/1]
+  [4;36;1mBlock Delete all (0.2ms)[0m   [0;1mDELETE FROM "blocks" WHERE 1=1[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing BlocksController#new (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+Rendering template within layouts/application
+Rendering blocks/new
+  [4;35;1mFileType Load (0.2ms)[0m   [0mSELECT * FROM "file_types" [0m
+Rendered blocks/_form (5.3ms)
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /blocks with {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"", "file_type_id"=>""}, "shared"=>"1"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing BlocksController#create (for 127.0.0.1 at 2010-03-15 00:15:09) [POST]
+  Parameters: {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"", "file_type_id"=>""}, "shared"=>"1"}}
+Rendering template within layouts/application
+Rendering blocks/new
+  [4;36;1mFileType Load (0.3ms)[0m   [0;1mSELECT * FROM "file_types" [0m
+Rendered blocks/_form (4.1ms)
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/blocks]
+  [4;35;1mBlock Delete all (1.0ms)[0m   [0mDELETE FROM "blocks" WHERE 1=1[0m
+  [4;36;1mBlock Create (0.4ms)[0m   [0;1mINSERT INTO "blocks" ("created_at", "updated_at", "last_revision", "shared", "owner") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 't', 1)[0m
+  [4;35;1mRevision Create (0.1ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 1, 'Just testing delete', NULL)[0m
+REQUESTING PAGE: GET /blocks with {} and HTTP headers {}
+
+
+Processing BlocksController#index (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  [4;36;1mBlock Load (0.9ms)[0m   [0;1mSELECT * FROM "blocks" WHERE ("blocks"."shared" = 't') ORDER BY updated_at DESC LIMIT 5 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering blocks/index
+  [4;35;1mRevision Load (3.2ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 8ms (View: 1, DB: 6) | 200 OK [http://www.example.com/blocks]
+  [4;36;1mBlock Delete all (4.7ms)[0m   [0;1mDELETE FROM "blocks" WHERE 1=1[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing BlocksController#new (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+Rendering template within layouts/application
+Rendering blocks/new
+  [4;35;1mFileType Load (0.3ms)[0m   [0mSELECT * FROM "file_types" [0m
+Rendered blocks/_form (4.8ms)
+Completed in 10ms (View: 6, DB: 5) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /blocks with {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"Just testing delete", "file_type_id"=>""}, "shared"=>"1"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing BlocksController#create (for 127.0.0.1 at 2010-03-15 00:15:09) [POST]
+  Parameters: {"commit"=>"Submit", "block"=>{"revision_attr"=>{"revision_number"=>"", "snippet"=>"Just testing delete", "file_type_id"=>""}, "shared"=>"1"}}
+  [4;36;1mBlock Create (0.9ms)[0m   [0;1mINSERT INTO "blocks" ("created_at", "updated_at", "last_revision", "shared", "owner") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 0, 't', 9)[0m
+  [4;35;1mRevision Create (0.1ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 1, 'Just testing delete', NULL)[0m
+Redirected to http://www.example.com/blocks/1
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/blocks]
+REQUESTING PAGE: GET http://www.example.com/blocks/1 with {} and HTTP headers {"HTTP_REFERER"=>"/blocks"}
+
+
+Processing BlocksController#show (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBlock Load (0.4ms)[0m   [0;1mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+Rendering template within layouts/application
+Rendering blocks/show
+Rendered blocks/_actions (7.8ms)
+Rendered blocks/_revisions (1.3ms)
+Completed in 17ms (View: 14, DB: 1) | 200 OK [http://www.example.com/blocks/1]
+  [4;36;1mBlock Load (1.4ms)[0m   [0;1mSELECT * FROM "blocks" ORDER BY blocks.id DESC LIMIT 1[0m
+REQUESTING PAGE: GET /blocks with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/blocks/1"}
+
+
+Processing BlocksController#index (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  [4;35;1mBlock Load (0.6ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."shared" = 't') ORDER BY updated_at DESC LIMIT 5 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering blocks/index
+Rendered blocks/_actions (4.2ms)
+  [4;36;1mRevision Load (0.5ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 12ms (View: 9, DB: 3) | 200 OK [http://www.example.com/blocks]
+REQUESTING PAGE: DELETE /blocks/1 with {} and HTTP headers {"HTTP_REFERER"=>"/blocks"}
+
+
+Processing BlocksController#destroy (for 127.0.0.1 at 2010-03-15 00:15:09) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBlock Load (0.4ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.5ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+  [4;35;1mRevision Destroy (0.2ms)[0m   [0mDELETE FROM "revisions" WHERE "id" = 1[0m
+  [4;36;1mBlock Destroy (0.1ms)[0m   [0;1mDELETE FROM "blocks" WHERE "id" = 1[0m
+Redirected to http://www.example.com/blocks
+Completed in 5ms (DB: 1) | 302 Found [http://www.example.com/blocks/1]
+REQUESTING PAGE: GET http://www.example.com/blocks with {} and HTTP headers {"HTTP_REFERER"=>"/blocks/1"}
+
+
+Processing BlocksController#index (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  [4;35;1mBlock Load (0.2ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."shared" = 't') ORDER BY updated_at DESC LIMIT 5 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering blocks/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/blocks]
+  [4;36;1mBlock Delete all (0.2ms)[0m   [0;1mDELETE FROM "blocks" WHERE 1=1[0m
+  [4;35;1mBlock Create (0.4ms)[0m   [0mINSERT INTO "blocks" ("created_at", "updated_at", "last_revision", "shared", "owner") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 't', 1)[0m
+  [4;36;1mRevision Create (0.8ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 1, 'Just testing', NULL)[0m
+REQUESTING PAGE: GET /blocks/1/edit with {} and HTTP headers {}
+
+
+Processing BlocksController#edit (for 127.0.0.1 at 2010-03-15 00:15:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBlock Load (0.5ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.5ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) ORDER BY revisions.id DESC LIMIT 1[0m
+Rendering template within layouts/application
+Rendering blocks/edit
+  [4;35;1mFileType Load (1.3ms)[0m   [0mSELECT * FROM "file_types" [0m
+Rendered blocks/_form (6.7ms)
+Completed in 16ms (View: 7, DB: 4) | 200 OK [http://www.example.com/blocks/1/edit]
+REQUESTING PAGE: POST /blocks/1 with {"commit"=>"Submit", "_method"=>"put", "block"=>{"revision_attr"=>{"revision_number"=>"1", "snippet"=>"changing the code", "file_type_id"=>""}, "shared"=>"1"}} and HTTP headers {"HTTP_REFERER"=>"/blocks/1/edit"}
+
+
+Processing BlocksController#update (for 127.0.0.1 at 2010-03-15 00:15:09) [PUT]
+  Parameters: {"commit"=>"Submit", "id"=>"1", "block"=>{"revision_attr"=>{"revision_number"=>"1", "snippet"=>"changing the code", "file_type_id"=>""}, "shared"=>"1"}}
+  [4;36;1mBlock Load (0.7ms)[0m   [0;1mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;35;1mBlock Update (0.6ms)[0m   [0mUPDATE "blocks" SET "updated_at" = '2010-03-15 02:15:09', "last_revision" = 2 WHERE "id" = 1[0m
+  [4;36;1mRevision Create (0.2ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:09', '2010-03-15 02:15:09', 1, 2, 'changing the code', NULL)[0m
+Redirected to http://www.example.com/blocks/1
+Completed in 14ms (DB: 1) | 302 Found [http://www.example.com/blocks/1]
+REQUESTING PAGE: GET http://www.example.com/blocks/1 with {} and HTTP headers {"HTTP_REFERER"=>"/blocks/1"}
+
+
+Processing BlocksController#show (for 127.0.0.1 at 2010-03-15 00:15:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBlock Load (0.5ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.6ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+Rendering template within layouts/application
+Rendering blocks/show
+Rendered blocks/_revisions (1.7ms)
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://www.example.com/blocks/1]
+REQUESTING PAGE: GET /blocks/1/revisions/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/blocks/1"}
+
+
+Processing RevisionsController#show (for 127.0.0.1 at 2010-03-15 00:15:10) [GET]
+  Parameters: {"block_id"=>"1", "id"=>"1"}
+  [4;35;1mBlock Load (0.6ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.8ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions"."id" = 1) [0m
+  [4;35;1mRevision Load (60.1ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+Rendering template within layouts/application
+Rendering revisions/show
+Rendered blocks/_revisions (1.7ms)
+Completed in 89ms (View: 20, DB: 62) | 200 OK [http://www.example.com/blocks/1/revisions/1]
+  [4;36;1mBlock Delete all (4.4ms)[0m   [0;1mDELETE FROM "blocks" WHERE 1=1[0m
+  [4;35;1mBlock Create (0.4ms)[0m   [0mINSERT INTO "blocks" ("created_at", "updated_at", "last_revision", "shared", "owner") VALUES('2010-03-15 02:15:10', '2010-03-15 02:15:10', 1, 't', 1)[0m
+  [4;36;1mRevision Create (0.3ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:10', '2010-03-15 02:15:10', 1, 1, 'Just testing', NULL)[0m
+REQUESTING PAGE: GET /blocks/1/edit with {} and HTTP headers {}
+
+
+Processing BlocksController#edit (for 127.0.0.1 at 2010-03-15 00:15:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBlock Load (0.1ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.5ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) ORDER BY revisions.id DESC LIMIT 1[0m
+Rendering template within layouts/application
+Rendering blocks/edit
+  [4;35;1mFileType Load (2.3ms)[0m   [0mSELECT * FROM "file_types" [0m
+Rendered blocks/_form (7.2ms)
+Completed in 14ms (View: 9, DB: 8) | 200 OK [http://www.example.com/blocks/1/edit]
+REQUESTING PAGE: POST /blocks/1 with {"commit"=>"Submit", "_method"=>"put", "block"=>{"revision_attr"=>{"revision_number"=>"1", "snippet"=>"Just testing", "file_type_id"=>""}, "shared"=>"0"}} and HTTP headers {"HTTP_REFERER"=>"/blocks/1/edit"}
+
+
+Processing BlocksController#update (for 127.0.0.1 at 2010-03-15 00:15:10) [PUT]
+  Parameters: {"commit"=>"Submit", "id"=>"1", "block"=>{"revision_attr"=>{"revision_number"=>"1", "snippet"=>"Just testing", "file_type_id"=>""}, "shared"=>"0"}}
+  [4;36;1mBlock Load (0.7ms)[0m   [0;1mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;35;1mBlock Update (0.4ms)[0m   [0mUPDATE "blocks" SET "updated_at" = '2010-03-15 02:15:10', "last_revision" = 2, "shared" = 'f' WHERE "id" = 1[0m
+  [4;36;1mRevision Create (0.2ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:10', '2010-03-15 02:15:10', 1, 2, 'Just testing', NULL)[0m
+Redirected to http://www.example.com/blocks/1
+Completed in 12ms (DB: 1) | 302 Found [http://www.example.com/blocks/1]
+REQUESTING PAGE: GET http://www.example.com/blocks/1 with {} and HTTP headers {"HTTP_REFERER"=>"/blocks/1"}
+
+
+Processing BlocksController#show (for 127.0.0.1 at 2010-03-15 00:15:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBlock Load (0.5ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.6ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+Rendering template within layouts/application
+Rendering blocks/show
+Rendered blocks/_revisions (1.5ms)
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://www.example.com/blocks/1]
+REQUESTING PAGE: GET /blocks with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/blocks/1"}
+
+
+Processing BlocksController#index (for 127.0.0.1 at 2010-03-15 00:15:10) [GET]
+  [4;35;1mBlock Load (0.2ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."shared" = 't') ORDER BY updated_at DESC LIMIT 5 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering blocks/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://www.example.com/blocks]
+  [4;36;1mBlock Delete all (0.2ms)[0m   [0;1mDELETE FROM "blocks" WHERE 1=1[0m
+  [4;35;1mBlock Create (0.5ms)[0m   [0mINSERT INTO "blocks" ("created_at", "updated_at", "last_revision", "shared", "owner") VALUES('2010-03-15 02:15:10', '2010-03-15 02:15:10', 1, 't', 1)[0m
+  [4;36;1mRevision Create (0.3ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "block_id", "revision_number", "snippet", "file_type_id") VALUES('2010-03-15 02:15:10', '2010-03-15 02:15:10', 1, 1, 'Just testing', NULL)[0m
+REQUESTING PAGE: GET /blocks/1 with {} and HTTP headers {}
+
+
+Processing BlocksController#show (for 127.0.0.1 at 2010-03-15 00:15:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBlock Load (0.4ms)[0m   [0mSELECT * FROM "blocks" WHERE ("blocks"."id" = 1) [0m
+  [4;36;1mRevision Load (0.8ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".block_id = 1) [0m
+Rendering template within layouts/application
+Rendering blocks/show
+Rendered blocks/_revisions (0.8ms)
+Completed in 6ms (View: 3, DB: 2) | 200 OK [http://www.example.com/blocks/1]
+  [4;35;1mBlock Delete all (3.3ms)[0m   [0mDELETE FROM "blocks" WHERE 1=1[0m

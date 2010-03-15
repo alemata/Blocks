@@ -7,11 +7,10 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  
+
   config.time_zone = 'UTC'
   config.gem "stories"
 end
 
-require "will_paginate"
-
-
+#require "will_paginate"
+config.load_paths += %W( #{RAILS_ROOT}/vendor/will_paginate-2.3.12/lib )
